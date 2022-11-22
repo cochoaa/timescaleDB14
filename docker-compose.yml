@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+ db:
+  container_name: timescaledb14
+  image: timescale/timescaledb:latest-pg14
+  env_file:
+      - database.env # configure postgres
+  ports:
+      - '50014:5432'
+  volumes:
+      - ./backup:/backup
+      - ./data:/var/lib/postgresql/data
